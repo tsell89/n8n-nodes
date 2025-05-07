@@ -1,0 +1,55 @@
+{
+  "name": "n8n-nodes-vitally",
+  "version": "0.1.0",
+  "description": "n8n community node for Vitally",
+  "keywords": [
+    "n8n-community-node-package",
+    "vitally",
+    "n8n",
+    "n8n-node"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/tsellhorn/n8n-nodes-vitally",
+  "author": {
+    "name": "Tyler Sellhorn",
+    "email": "tyler.sellhorn@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsellhorn/n8n-nodes-vitally.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "format": "prettier nodes credentials --write",
+    "lint": "eslint ./nodes/**/*.ts ./credentials/**/*.ts",
+    "lintfix": "eslint ./nodes/**/*.ts ./credentials/**/*.ts --fix",
+    "prepublishOnly": "npm run build && npm run lint"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/VitallyApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Vitally/Vitally.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/request-promise-native": "~1.0.18",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "~5.45",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.11.0",
+    "gulp": "^4.0.2",
+    "n8n-core": "~0.125.0",
+    "n8n-workflow": "~0.107.0",
+    "prettier": "^2.7.1",
+    "typescript": "~4.8.4"
+  }
+}
